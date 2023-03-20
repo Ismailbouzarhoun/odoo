@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_ticket">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div>
+                        <table class="table table-condensed" >
+                            <tr>
+                                <td width="25%" style="border:2px solid black !important;">
+                                    <header style="font-size: small;">
+                                        <img src="/tickets/static/img/logo_detroit.png" style="height:90px !important;width:100px !important;float:left;width:30%;"/>
+                                        <p style="float:right;width:70%;line-height: 25px; color:#25488e">
+                                            AV.ELICHRINE RES.SABIRI RDC <br /> JIRARI |||-Tanger <br /> Tel/fax : 05 39 95 73 16 <br /> E-mail:detroit.computer.sarl@gmail.com <br />
+                                        </p>
+                                    </header>
+                                    <body>
+                                        <p>
+                                            &#160;&#160;&#160;&#160;&#160;O.R.N:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.name"/>
+                                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Le:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.recieve_date" t-options='{"widget": "datetime", "datetime_format": "%d-%m-%Y %H:%M"}'/><br />
+                                            &#160;&#160;&#160;&#160;&#160;Client :&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span t-field="doc.client_ids"/><br />
+                                            &#160;&#160;&#160;&#160;&#160;tel:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.tel"/><br /><br />
+                                            &#160;&#160;&#160;&#160;&#160;Nat.Mat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span t-field="doc.material_ids"/><br />
+                                            &#160;&#160;&#160;&#160;&#160;info O.R:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.info"/>
+                                        </p>
+                                    </body>
+                                    <hr />
+                                    <footer style="color:#25488e;font-size: small;">
+                                      <p DIR="RTL">ملحوظة لا نتحمل مسؤولية ضياع الجهاز بعد مرور 3 أشهر عن تريخ استلام</p>
+                                      <p>
+                                          NB: le delai de recuperation de votre material est de 3 mois a partir de la date de receptions passer ce delai, le material cite ci-dessus passera a etre propriete de Detroit Computer
+                                      </p>
+                                    </footer>
+                                </td>
+                                <td width="25%" style="border:2px solid black !important;">
+                                    <header style="font-size: small;">
+                                        <img src="/tickets/static/img/logo_detroit.png" style="height:90px !important;width:100px !important;float:left;width:30%;"/>
+                                        <p style="float:right;width:70%;line-height: 25px; color:#25488e">
+                                            AV.ELICHRINE RES.SABIRI RDC <br /> JIRARI |||-Tanger <br /> Tel/fax : 05 39 95 73 16 <br /> E-mail:detroit.computer.sarl@gmail.com <br />
+                                        </p>
+                                    </header>
+                                    <body>
+                                        <p>
+                                            &#160;&#160;&#160;&#160;&#160;O.R.N:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.name"/>
+                                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Le:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.recieve_date" t-options='{"widget": "datetime", "datetime_format": "%d-%m-%Y %H:%M"}'/><br />
+                                            &#160;&#160;&#160;&#160;&#160;Client :&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span t-field="doc.client_ids"/><br />
+                                            &#160;&#160;&#160;&#160;&#160;tel:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.tel"/><br /><br />
+                                            &#160;&#160;&#160;&#160;&#160;Nat.Mat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span t-field="doc.material_ids"/><br />
+                                            &#160;&#160;&#160;&#160;&#160;info O.R:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<t t-esc="doc.info"/>
+                                        </p>
+                                    </body>
+                                    <hr />
+                                    <footer style="color:#25488e;font-size: small;">
+                                      <p DIR="RTL">ملحوظة لا نتحمل مسؤولية ضياع الجهاز بعد مرور 3 أشهر عن تريخ استلام</p>
+                                      <p>
+                                          NB: le delai de recuperation de votre material est de 3 mois a partir de la date de receptions passer ce delai, le material cite ci-dessus passera a etre propriete de Detroit Computer
+                                      </p>
+                                    </footer>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>

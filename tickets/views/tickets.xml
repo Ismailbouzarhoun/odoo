@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="seq_scanning_test" model="ir.sequence">
+            <field name="name">Patient Scanning Test</field>
+            <field name="code">patient.scanning.test</field>
+            <field name="prefix">DC</field>
+            <field name="padding">3</field>
+        </record>
+
+    <record model="ir.ui.view" id="print_form_view">
+        <field name="name">print.form</field>
+        <field name="model">tickets.print</field>
+        <field name="arch" type="xml">
+            <form string="print Form">
+                <sheet>
+                    <field name="name"/>
+                    <group string="general">
+                        <field name="recieve_date" t-options='{"widget": "datetime", "datetime_format": "%d-%m-%Y %H:%M"}'/>
+                        <field name="out_date" t-options='{"widget": "datetime", "datetime_format": "%d-%m-%Y %H:%M"}'/>
+                        <field name="client_ids"/>
+                        <field name="tel"/>
+                        <field name="info"/>
+                    </group>
+                    <group string="reparation">
+                        <field name="lieu_ids"/>
+                        <field name="operateur_ids"/>
+                        <field name="start_date" t-options='{"widget": "datetime", "datetime_format": "%d-%m-%Y %H:%M"}'/>
+                        <field name="end_date" t-options='{"widget": "datetime", "datetime_format": "%d-%m-%Y %H:%M"}'/>
+                        <field name="rep" widget="Radio" />
+                        <field name="recup" widget="Radio" />
+                    </group>
+                    <group>
+                        <field name="commentaire"/>
+                    </group>
+                    <label for="material_ids"/>
+                    <field name="material_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record model="ir.ui.view" id="print_tree_view">
+        <field name="name">print.tree</field>
+        <field name="model">tickets.print</field>
+        <field name="arch" type="xml">
+            <tree string="Course Tree">
+                <field name="name"/>
+                <field name="client_ids"/>
+                <field name="operateur_ids"/>
+                <field name="info"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="print_list_action">
+        <field name="name">Tickets</field>
+        <field name="res_model">tickets.print</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first ticket
+            </p>
+        </field>
+    </record>
+    <!-- top level menu: no parent -->
+    <menuitem id="main_tickets_menu" name="Tickets"/>
+
+    <menuitem id="tickets_menu" name="Tickets" parent="main_tickets_menu" action="print_list_action"/>
+
+
+
+
+
+    <!--Operateur-->
+     <record model="ir.ui.view" id="operateur_form_view">
+        <field name="name">operateur.form</field>
+        <field name="model">tickets.operateur</field>
+        <field name="arch" type="xml">
+            <form string="operateur Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="operateur_tree_view">
+        <field name="name">operateur.tree</field>
+        <field name="model">tickets.operateur</field>
+        <field name="arch" type="xml">
+            <tree string="Course Tree">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="operateur_list_action">
+        <field name="name">Operateur</field>
+        <field name="res_model">tickets.operateur</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first operateur
+            </p>
+        </field>
+    </record>
+    <menuitem id="operateur_menu" name="operateur" parent="main_tickets_menu" action="operateur_list_action"/>
+
+
+
+
+
+    <!--  Lieu  -->
+    <record model="ir.ui.view" id="lieu_form_view">
+        <field name="name">lieu.form</field>
+        <field name="model">tickets.lieu</field>
+        <field name="arch" type="xml">
+            <form string="lieu Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="lieu_tree_view">
+        <field name="name">lieu.tree</field>
+        <field name="model">tickets.lieu</field>
+        <field name="arch" type="xml">
+            <tree string="lieu Tree">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="lieu_list_action">
+        <field name="name">Lieu</field>
+        <field name="res_model">tickets.lieu</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first lieu
+            </p>
+        </field>
+    </record>
+    <menuitem id="lieu_menu" name="lieu" parent="main_tickets_menu" action="lieu_list_action"/>
+
+
+
+
+    <!--   Client     -->
+    <record model="ir.ui.view" id="client_form_view">
+        <field name="name">client.form</field>
+        <field name="model">tickets.client</field>
+        <field name="arch" type="xml">
+            <form string="client Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="tel"/>
+                        <field name="adress"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="client_tree_view">
+        <field name="name">client.tree</field>
+        <field name="model">tickets.client</field>
+        <field name="arch" type="xml">
+            <tree string="Course Tree">
+                <field name="name"/>
+                <field name="adress"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="client_list_action">
+        <field name="name">client</field>
+        <field name="res_model">tickets.client</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first client
+            </p>
+        </field>
+    </record>
+    <menuitem id="client_menu" name="client" parent="main_tickets_menu" action="client_list_action"/>
+
+
+
+    <!-- material-->
+    <record model="ir.ui.view" id="material_form_view">
+        <field name="name">material.form</field>
+        <field name="model">tickets.material</field>
+        <field name="arch" type="xml">
+            <form string="material Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="material_tree_view">
+        <field name="name">material.tree</field>
+        <field name="model">tickets.material</field>
+        <field name="arch" type="xml">
+            <tree string="material Tree">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="material_list_action">
+        <field name="name">material</field>
+        <field name="res_model">tickets.material</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first material
+            </p>
+        </field>
+    </record>
+    <menuitem id="material_menu" name="material" parent="main_tickets_menu" action="material_list_action"/>
+</odoo>

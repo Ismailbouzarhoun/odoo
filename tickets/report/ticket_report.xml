@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+        id="report_tickets"
+        string="ticket"
+        model="tickets.print"
+        name="tickets.report_ticket"
+        file="tickets.report_ticket"
+    />
+</odoo>

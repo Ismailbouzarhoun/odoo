@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+print_user,tickets user,model_tickets_print,base.group_user,1,1,1,1
+operateur_user,operateur user,model_tickets_operateur,base.group_user,1,1,1,1
+lieu_user,lieu user,model_tickets_lieu,base.group_user,1,1,1,1
+client_user,client user,model_tickets_client,base.group_user,1,1,1,1
+material_user,material user,model_tickets_material,base.group_user,1,1,1,1
